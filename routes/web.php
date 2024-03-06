@@ -1,18 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// GETリクエストに対してのルートを定義し、主に通常のURL遷移やフォームのGETリクエストに対して用いる
+// ProductControllerのindexアクションを指定
+// /というルートに対して、product.indexという名前を付けています
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
